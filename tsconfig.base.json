@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@payback/ui-mobile": ["packages/ui-mobile/src/index.ts"],
+      "@payback/ui-web": ["packages/ui-web/src/index.ts"],
+      "@poc-ds-react/ui-core": ["packages/ui-core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
