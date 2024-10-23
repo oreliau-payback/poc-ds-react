@@ -1,0 +1,14 @@
+{
+  "name": "@poc-ds-react/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "empty": "0.10.1"
+  },
+  "devDependencies": {
+    "@nx/workspace": "20.0.3",
+    "nx": "20.0.3"
+  },
+  "packageManager": "yarn@3.8.5+sha256.6fd0fd785cdf2b18a9a9e2589726a11530ff018d193f8eda64be485a080f75b9"
+}
