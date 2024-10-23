@@ -1,3 +1,5 @@
 export interface ReactCoreUiGeneratorSchema {
-  name: string;
+  componentName: string;
+  atomicScope: 'atoms' | 'molecules' | 'organisms' | 'layouts';
+  libName: 'packages/ui-core' | 'packages/ui-mobile' | 'packages/ui-web';
 }

@@ -1,0 +1,9 @@
+import * as React from 'react';
+import { render } from '@testing-library/react-native';
+
+import { <%= kebabToPascal(componentName) %> } from './<%= componentName %>';
+
+test('renders correctly', () => {
+  const { getByTestId } = render(<<%= kebabToPascal(componentName) %> />);
+  expect(getByTestId('<%= componentName %>')).toHaveTextContent('<%= componentName %>');
+});

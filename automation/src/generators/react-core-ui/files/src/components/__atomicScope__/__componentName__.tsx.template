@@ -1,0 +1,73 @@
+<% if(isMultiPlatform) { %>
+import styledWeb from 'styled-components';
+import styledRN from 'styled-components/native';
+
+const <%= kebabToPascal(componentName) %>Web = () => {
+const StyleDiv = styledWeb.div`
+    background-color: papayawhip;
+  `;
+const StyleSpan = styledWeb.span`
+    color: #bf4f74;
+  `;
+  return (
+    <StyleDiv id="<%= componentName %>">
+      <StyleSpan><%= componentName %></StyleSpan>
+    </StyleDiv>
+  );
+};
+
+const <%= kebabToPascal(componentName) %>RN = () => {
+const StyledView = styledRN.View`
+  background-color: papayawhip;
+`;
+const StyledText = styledRN.Text`
+  color: #bf4f74;
+`;
+  return (
+    <StyledView testID="<%= componentName %>">
+      <StyledText><%= componentName %></StyledText>
+    </StyledView>
+  );
+};
+
+export const <%= kebabToPascal(componentName) %> =
+  styledWeb?.div === undefined ? <%= kebabToPascal(componentName) %>RN : <%= kebabToPascal(componentName) %>Web;
+<% }  %>
+<% if(isMobileOnly) { %>
+import styled from 'styled-components/native';
+
+const StyledView = styled.View`
+  background-color: papayawhip;
+`
+
+const StyledText = styled.Text`
+  color: #BF4F74;
+`
+
+export const <%= kebabToPascal(componentName) %> = () => {
+    return (
+        <StyledView>
+            <StyledText><%= componentName %></StyledText>
+        </StyledView>
+    )
+}
+<% }  %>
+<% if(isWebOnly) { %>
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  background-color: papayawhip;
+`
+
+const StyledText = styled.p`
+  color: #BF4F74;
+`
+
+export const <%= kebabToPascal(componentName) %> = () => {
+    return (
+        <StyledDiv>
+            <StyledText><%= componentName %></StyledText>
+        </StyledDiv>
+    )
+}
+<% }  %>

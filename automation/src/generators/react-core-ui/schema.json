@@ -4,15 +4,68 @@
   "title": "",
   "type": "object",
   "properties": {
-    "name": {
+    "libName": {
       "type": "string",
-      "description": "",
+      "description": "Provide the name of the destination library",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": {
+        "message": "Which type of library would you like to generate?",
+        "type": "list",
+        "items": [
+          {
+            "value": "ui-core",
+            "label": "ui-mobile & ui-web"
+          },
+          {
+            "value": "ui-mobile",
+            "label": "ui-mobile"
+          },
+          {
+            "value": "ui-web",
+            "label": "ui-web"
+          }
+        ]
+      }
+    },
+    "componentName": {
+      "type": "string",
+      "description": "Provide the name of the component",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "What is the name of the component ? (ex: my-button,my-input,my-select)"
+    },
+    "atomicScope": {
+      "type": "string",
+      "description": "Provide the atomic scope of the component",
+
+      "x-prompt": {
+        "message": "What is the atomic scope of the component ?",
+        "type": "list",
+        "items": [
+          {
+            "value": "atoms",
+            "label": "Atom"
+          },
+          {
+            "value": "molecules",
+            "label": "Molecule"
+          },
+          {
+            "value": "organisms",
+            "label": "Organism"
+          },
+          {
+            "value": "layouts",
+            "label": "Layout"
+          }
+        ]
+      }
     }
   },
-  "required": ["name"]
+  "required": ["libName", "componentName"]
 }
