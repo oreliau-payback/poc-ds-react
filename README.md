@@ -53,7 +53,7 @@ nx g @nx/expo:lib packages/ui-core --style=none --bundler=none --linter=eslint -
 nx g @nx/expo:lib packages/ui-mobile --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true --publishable=true --importPath=@payback/ui-mobile && \
 nx g @nx/expo:lib packages/ui-web --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true --publishable=true --importPath=@payback/ui-web && \
 git add . && \
-git commit -m "feat: init libs"
+git commit -m "feat: init packages"
 ```
 
 - Add React Native Web and Styled Components

@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "react-core-ui": {
+      "factory": "./src/generators/react-core-ui/generator",
+      "schema": "./src/generators/react-core-ui/schema.json",
+      "description": "react-core-ui generator"
+    }
+  }
+}

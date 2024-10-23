@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "peerDependencies": {
-    "react": "18.2.0",
-    "react-native": "0.74.1"
+    "@nx/rollup": "20.0.3"
   }
 }
