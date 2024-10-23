@@ -8,7 +8,11 @@
   },
   "devDependencies": {
     "@nx/workspace": "20.0.3",
+    "husky": "^9.1.6",
     "nx": "20.0.3"
   },
-  "packageManager": "yarn@3.8.5+sha256.6fd0fd785cdf2b18a9a9e2589726a11530ff018d193f8eda64be485a080f75b9"
+  "packageManager": "yarn@3.8.5+sha256.6fd0fd785cdf2b18a9a9e2589726a11530ff018d193f8eda64be485a080f75b9",
+  "scripts": {
+    "prepare": "husky"
+  }
 }
