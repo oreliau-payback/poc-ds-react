@@ -7,6 +7,7 @@
     "@expo/metro-config": "~0.18.1",
     "@expo/metro-runtime": "~3.2.1",
     "@nx/devkit": "20.0.3",
+    "@testing-library/jest-dom": "^6.6.2",
     "empty": "0.10.1",
     "expo": "~51.0.8",
     "expo-splash-screen": "~0.27.4",
@@ -35,16 +36,20 @@
     "@nx/vite": "20.0.3",
     "@nx/web": "20.0.3",
     "@nx/workspace": "20.0.3",
+    "@storybook/addon-actions": "^8.3.6",
+    "@storybook/react": "^8.3.6",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-native": "~5.4.3",
+    "@testing-library/react": "^16.0.1",
     "@testing-library/react-native": "~12.5.0",
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
-    "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@types/react-is": "18.3.0",
     "@types/styled-components": "5.1.26",
     "@types/styled-components-react-native": "^5.2.5",
@@ -82,5 +87,11 @@
   "packageManager": "yarn@3.8.5+sha256.6fd0fd785cdf2b18a9a9e2589726a11530ff018d193f8eda64be485a080f75b9",
   "scripts": {
     "prepare": "husky"
-  }
+  },
+  "workspaces": [
+    "apps",
+    "libs",
+    "automation",
+    "docs"
+  ]
 }

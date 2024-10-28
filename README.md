@@ -121,6 +121,25 @@ git commit -m "feat: add generator script for each lib"
 
 ## Generate Components
 
+- Add workspaces on package.json
+
+```json
+  "workspaces": [
+    "apps",
+    "libs",
+    "automation",
+    "docs"
+  ]
+```
+
+- Update eslint @nx/enforce-module-boundaries to warn
+
+- Install storybook
+
+```bash
+yarn add -D @storybook/react @storybook/addon-actions
+```
+
 - Generate components for each lib
 
 ```bash

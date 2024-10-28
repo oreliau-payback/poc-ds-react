@@ -2,27 +2,30 @@
 import styledWeb from 'styled-components';
 import styledRN from 'styled-components/native';
 
-const <%= kebabToPascal(componentName) %>Web = () => {
+const isReactWeb =
+  typeof window !== 'undefined' && typeof document !== 'undefined';
+
 const StyleDiv = styledWeb.div`
     background-color: papayawhip;
   `;
 const StyleSpan = styledWeb.span`
     color: #bf4f74;
   `;
+const <%= kebabToPascal(componentName) %>Web = () => {
   return (
-    <StyleDiv id="<%= componentName %>">
+    <StyleDiv data-testid="<%= componentName %>">
       <StyleSpan><%= componentName %></StyleSpan>
     </StyleDiv>
   );
 };
 
-const <%= kebabToPascal(componentName) %>RN = () => {
 const StyledView = styledRN.View`
   background-color: papayawhip;
 `;
 const StyledText = styledRN.Text`
   color: #bf4f74;
 `;
+const <%= kebabToPascal(componentName) %>RN = () => {
   return (
     <StyledView testID="<%= componentName %>">
       <StyledText><%= componentName %></StyledText>
@@ -30,8 +33,7 @@ const StyledText = styledRN.Text`
   );
 };
 
-export const <%= kebabToPascal(componentName) %> =
-  styledWeb?.div === undefined ? <%= kebabToPascal(componentName) %>RN : <%= kebabToPascal(componentName) %>Web;
+export const <%= kebabToPascal(componentName) %> = isReactWeb ? <%= kebabToPascal(componentName) %>Web : <%= kebabToPascal(componentName) %>RN;
 <% }  %>
 <% if(isMobileOnly) { %>
 import styled from 'styled-components/native';
@@ -46,7 +48,7 @@ const StyledText = styled.Text`
 
 export const <%= kebabToPascal(componentName) %> = () => {
     return (
-        <StyledView>
+        <StyledView testID="<%= componentName %>">
             <StyledText><%= componentName %></StyledText>
         </StyledView>
     )
@@ -65,7 +67,7 @@ const StyledText = styled.p`
 
 export const <%= kebabToPascal(componentName) %> = () => {
     return (
-        <StyledDiv>
+        <StyledDiv data-testid="<%= componentName %>">
             <StyledText><%= componentName %></StyledText>
         </StyledDiv>
     )

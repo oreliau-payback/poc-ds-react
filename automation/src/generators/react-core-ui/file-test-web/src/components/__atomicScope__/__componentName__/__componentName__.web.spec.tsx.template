@@ -1,0 +1,12 @@
+/**
+ * @jest-environment jsdom
+ */
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+import { <%= kebabToPascal(componentName) %> } from '.';
+
+test('renders correctly web', () => {
+  const { getByTestId } = render(<<%= kebabToPascal(componentName) %> />);
+  expect(getByTestId('<%= componentName %>')).toHaveTextContent('<%= componentName %>');
+});

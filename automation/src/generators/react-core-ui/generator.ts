@@ -15,12 +15,13 @@ const addExportOnIndexFile = ({
   options,
   isSource = false,
 }: {
-  projectRoot: `libs/${ReactCoreUiGeneratorSchema['libName']}`;
+  projectRoot: `${ReactCoreUiGeneratorSchema['libName']}`;
   tree: Tree;
   options: ReactCoreUiGeneratorSchema;
   isSource?: boolean;
 }) => {
   const filePath = `${projectRoot}/src/index.ts`;
+
   const contents = tree.read(filePath).toString();
 
   const sourcePath = isSource
@@ -37,8 +38,8 @@ export async function reactCoreUiGenerator(
   tree: Tree,
   options: ReactCoreUiGeneratorSchema
 ) {
-  // Copy the template files to the destination
-  const projectRoot = `libs/${options.libName}`;
+  const projectRoot = options.libName;
+
   generateFiles(tree, path.join(__dirname, 'files'), projectRoot, {
     kebabToPascal,
     isMobileOnly: options.libName === 'packages/ui-mobile',
@@ -47,6 +48,25 @@ export async function reactCoreUiGenerator(
     ...options,
   });
 
+  if (['packages/ui-mobile', 'packages/ui-core'].includes(options.libName)) {
+    generateFiles(tree, path.join(__dirname, 'file-test-mobile'), projectRoot, {
+      kebabToPascal,
+      isMobileOnly: options.libName === 'packages/ui-mobile',
+      isWebOnly: options.libName === 'packages/ui-web',
+      isMultiPlatform: options.libName === 'packages/ui-core',
+      ...options,
+    });
+  }
+
+  if (['packages/ui-web', 'packages/ui-core'].includes(options.libName)) {
+    generateFiles(tree, path.join(__dirname, 'file-test-web'), projectRoot, {
+      kebabToPascal,
+      isMobileOnly: options.libName === 'packages/ui-mobile',
+      isWebOnly: options.libName === 'packages/ui-web',
+      isMultiPlatform: options.libName === 'packages/ui-core',
+      ...options,
+    });
+  }
   // Add export on the index file
   const exportDestination =
     options.libName === 'packages/ui-core'
@@ -55,7 +75,7 @@ export async function reactCoreUiGenerator(
 
   exportDestination.forEach((libName) => {
     addExportOnIndexFile({
-      projectRoot: `libs/${libName}`,
+      projectRoot: libName,
       tree,
       options,
       isSource: libName === options.libName,
