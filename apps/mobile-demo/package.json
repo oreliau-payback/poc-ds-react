@@ -1,5 +1,5 @@
 {
-  "name": "mobile",
+  "name": "mobile-demo",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -12,6 +12,6 @@
     "react-native-web": "*"
   },
   "scripts": {
-    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile-demo"
   }
 }

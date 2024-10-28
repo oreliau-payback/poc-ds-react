@@ -38,7 +38,7 @@ export const App = () => {
               testID="heading"
               role="heading"
             >
-              Welcome Mobile 👋
+              Welcome MobileDemo 👋
             </Text>
           </View>
           <View style={styles.section}>
@@ -447,7 +447,7 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx build Mobile
+                  nx build MobileDemo
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Test
@@ -459,13 +459,13 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx test Mobile
+                  nx test MobileDemo
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Lint
                 </Text>
                 <Text style={[styles.textXS, styles.monospace]}>
-                  nx lint Mobile
+                  nx lint MobileDemo
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Run them together!
@@ -477,7 +477,7 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx run-many -p Mobile -t build test lint
+                  nx run-many -p MobileDemo -t build test lint
                 </Text>
               </View>
 
@@ -502,7 +502,7 @@ export const App = () => {
               </View>
               <View style={[styles.codeBlock, styles.marginBottomLg]}>
                 <Text style={[styles.textXS, styles.monospace]}>
-                  nx show project Mobile
+                  nx show project MobileDemo
                 </Text>
               </View>
               <View style={styles.listItem}>

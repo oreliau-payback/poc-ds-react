@@ -40,8 +40,8 @@ git commit -m "feat: add husky"
 ```bash
 nx add @nx/expo && \
 nx add @nx/react && \
-nx g @nx/react:app apps/website --bundler=vite --style=styled-components --linter=eslint --unitTestRunner=none --routing=true --e2eTestRunner=none && \
-nx g @nx/expo:app apps/mobile --unitTestRunner=none --e2eTestRunner=none --linter=eslint  && \
+nx g @nx/react:app apps/website-demo --bundler=vite --style=styled-components --linter=eslint --unitTestRunner=none --routing=true --e2eTestRunner=none && \
+nx g @nx/expo:app apps/mobile-demo --unitTestRunner=none --e2eTestRunner=none --linter=eslint  && \
 git add . && \
 git commit -m "feat: init apps"
 ```
@@ -49,9 +49,11 @@ git commit -m "feat: init apps"
 - Add React Native Web lib
 
 ```bash
-nx g @nx/expo:lib packages/ui-core --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true && \
+nx add @nx/expo && \
+nx add @nx/react && \
+nx g @nx/react:lib packages/ui-core --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true && \
 nx g @nx/expo:lib packages/ui-mobile --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true --publishable=true --importPath=@payback/ui-mobile && \
-nx g @nx/expo:lib packages/ui-web --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true --publishable=true --importPath=@payback/ui-web && \
+nx g @nx/react:lib packages/ui-web --style=none --bundler=none --linter=eslint --unitTestRunner=jest --compiler=babel --minimal=true --publishable=true --importPath=@payback/ui-web && \
 git add . && \
 git commit -m "feat: init packages"
 ```
@@ -146,16 +148,11 @@ yarn add -D @storybook/react @storybook/addon-actions
 nx g @ds-react/automation:react-core-ui --libName=packages/ui-core --componentName=my-button-core --atomicScope=molecules && \
 nx g @ds-react/automation:react-core-ui --libName=packages/ui-web --componentName=my-button-web --atomicScope=molecules && \
 nx g @ds-react/automation:react-core-ui --libName=packages/ui-mobile --componentName=my-button-mobile --atomicScope=molecules && \
+echo "npx nx run-many -t test --passWithNoTests" >> .husky/pre-commit && \
 
 git add .
 git commit -m "feat: generate a component"
 ```
-
-Don't forget to add `/* eslint-disable @nx/enforce-module-boundaries */`
-
-- Run the website app `nx serve website`
-
-- Run the mobile app `nx start mobile`, tap 'a' to run on android emulator and 'i' to run on ios emulator.
 
 ## Setup Storybook
 
